@@ -29,7 +29,14 @@ public class Jugador {
 
     public String obtenerCartasFormateadas() {
         StringBuilder sb = new StringBuilder();
-
+        for (Carta c : mano) {
+            sb.append(c.toString()).append(" ");
+        }
+        return sb.toString().trim();
     }
 
+    @Override
+    public String toString() {
+        return "▶ " + nombre + " posee: " + obtenerCartasFormateadas();
+    }
 }
