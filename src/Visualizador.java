@@ -37,7 +37,21 @@ public class Visualizador {
             }
         }
 
+        String etiqueta = etiquetaValor(c.getValor());
+        Canvas.getCanvas().drawString(etiqueta, p.getX() + 6, p.getY() + 16, color);
+        Canvas.getCanvas().drawString(etiqueta, p.getX() + 70 - 6 - 8 * etiqueta.length(), p.getY() + 64, color);
+
         System.out.println("Desplegando gráficamente " + c + " en la posición (" + p.getX() + ", " + p.getY() + ")");
+    }
+
+    private static String etiquetaValor(int valor) {
+        return switch (valor) {
+            case 1 -> "A";
+            case 11 -> "J";
+            case 12 -> "Q";
+            case 13 -> "K";
+            default -> String.valueOf(valor);
+        };
     }
 
     private static void cuadrado(int x, int y, int lado, String color) {
